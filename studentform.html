@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Form</title>
+    </head>
+    <style>
+        body{
+            font-size: 20px;
+            background-color: rgb(237, 60, 122);
+        }
+        #tabletwo{
+            margin-left: 450px;
+        }
+        table{
+            margin-left: 530px;
+            margin-bottom: 25px;
+            border: 1;
+        }
+        .tableone tr,td,th {
+            border: 1px solid white;
+            padding: 8px;
+            color: white;
+        }
+        .btn{
+            text-align: center;
+            width: 250px;
+            background-color: rgb(79, 237, 79);
+            border-radius: 25px;
+            height:35px;
+            border: none;
+            color: whitesmoke;
+        }
+        .bt{
+            text-align: center;
+            width: 250px;
+            background-color: rgb(248, 12, 12);
+            border-radius: 25px;
+            height:35px;
+            border: white;
+            color: whitesmoke;
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+    </style>
+    <body>
+        <h1>STUDENT FORM</h1>
+        <table id="tableone">
+            <tr><td>Name</td><td><input id="name"></td></tr>
+            <tr><td>Age</td><td><input id="age"></td></tr>
+            <tr><td>Gender</td><td><input type="radio" name="gender" value="Male">Male<input type="radio" name="gender" value="Female">Female</td></tr>
+            <tr><td>Course</td><td><input id="course"></td></tr>
+            <tr><td>E-mail</td><td><input id="email"></td></tr>
+            <tr><td colspan="2"><button class="btn" onclick="save()">Save</button></td></tr>
+        </table>
+        <table id="tabletwo">
+            <tr><th>Name</th><th>Age</th><th>Course</th><th>Gender</th><th>Email</th><th>Action</th></tr>
+        </table>
+        <script>
+            function save(){
+            var name = document.getElementById("name").value
+            var age = document.getElementById("age").value
+            var gender = document.querySelector('input[name="gender"]:checked').value
+            var course = document.getElementById("course").value
+            var email = document.getElementById("email").value
+            var newrow = document.createElement("tr")
+            var tablewo = document.getElementById("tabletwo")
+            newrow.innerHTML = "<td>"+name+"</td><td>"+age+"</td><td>"+course+"</td><td>"+gender+"</td><td>"+email+"</td><td>"+"<button class='bt' onclick='del(event)'>delete</button></td>"
+            tablewo.append(newrow)
+        }
+            function del(event){
+                event.target.parentElement.parentElement.remove()
+            }
+        </script>
+    </body>
+</html>
+
+  
